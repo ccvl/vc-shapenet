@@ -2,7 +2,7 @@
 In addition to Weichao's code, render all categories of more view angles from ShapeNet.
 
 ## Install
-In addition to Weichao's, I recommend add a GNU-parallel module to speed up rendering process(OPTIONAL).
+In addition to Weichao's, I recommend adding GNU-parallel module to speed up rendering process(OPTIONAL).
 ``` 
 sudo apt-get parallel
 ```
@@ -33,11 +33,12 @@ After a few minites, you will see render_commands.txt in the root folder.
 ```
 parallel < render_commands.txt
 ```
-This takes about 8 days to run in 12 cores in parallel. If you don't want it in parallel, run render commands as shell scripts.
+
+    This takes about 8 days to run in 12 cores in parallel. If you don't want it in parallel, run render commands as shell scripts.
 
 ##Output
 
-Images will be populated in ROOT_FOLDER/images/. The filename convention is [category_id]_[model_id]_a[azimuth]_e[elevation]_t[tilt]_d[distance].png.
+    Images will be populated in ROOT_FOLDER/images/. The filename convention is [category_id]_[model_id]_a[azimuth]_e[elevation]_t[tilt]_d[distance].png.
     
     
     
