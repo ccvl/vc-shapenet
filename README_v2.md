@@ -36,6 +36,7 @@ parallel < render_commands.txt
 This takes about 8 days to run in 12 cores in parallel. If you don't want it in parallel, run render commands as shell scripts.
 
 ##Output
+
 Images will be populated in ROOT_FOLDER/images/. The filename convention is [category_id]_[model_id]_a[azimuth]_e[elevation]_t[tilt]_d[distance].png.
     
     
