@@ -1,5 +1,5 @@
 # vc-shapenet_v2
-In addition to Weichao's code, render all categories of more view angles from ShapeNet.
+In addition to Weichao's code, render all categories of more view angles from ShapeNet.hhhh
 
 ## Install
 In addition to Weichao's, I recommend adding GNU-parallel module to speed up rendering process(OPTIONAL).
