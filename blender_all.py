@@ -27,7 +27,7 @@ author: hao su, charles r. qi, yangyan li
 #sys.path.append('.')
 #from share.py import color
 import pickle
-color = pickle.load( open( "color_map.p", "rb"))
+#color = pickle.load( open( "color_map.p", "rb"))
 import os
 import bpy
 import sys
