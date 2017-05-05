@@ -1,7 +1,8 @@
 import os, sys, tempfile, shutil
+import glob
 import global_variables as G
 import os.path as osp
-
+import numpy as np
 # set debug mode
 debug_mode = 0
 if debug_mode:
@@ -28,10 +29,10 @@ def call_blender(modelfile, catogory):
     temp_dirname = tempfile.mkdtemp()
 
     view_file = 'viewpoints/all_views.txt'
-    shape = modelfile.split('/')[8]
-    shape_synset = modelfile.split('/')[7]
+    shape = modelfile.split('/')[9]
+    shape_synset = modelfile.split('/')[8]
     syn_images_folder = os.path.join('images', catogory)
-    render_cmd = '%s %s --background --python %s -- %s %s %s %s %s >> report_all' % (
+    render_cmd = '%s %s -noaudio --background --python %s -- %s %s %s %s %s >> report_all' % (
         G.g_blender_executable_path,
         blank_file,
         render_code,
@@ -42,7 +43,9 @@ def call_blender(modelfile, catogory):
         syn_images_folder
     )
     try:
-        f = open('render_commands.txt','a')
+        #f = open('render_commands.txt','a')
+        print G.g_blender_executable_path,
+        f= open(shape_synset,'a')
         f.write(render_cmd+'\n')
         f.close()        
         #os.system('%s' %render_cmd)
@@ -62,12 +65,17 @@ if __name__ == '__main__':
     f = open('name.txt','r')
     lines = f.readlines()
     for line in lines:
-        catogory = line[0:8]
-
-        model_dir = os.path.join(G.g_shapenet_root_folder, catogory, '/*/model.obj')
+        category = line[0:8]
+        model_dir = os.path.join(G.g_shapenet_root_folder, category, '*/models/model_normalized.obj')
+        print model_dir 
         models = glob.glob(model_dir)
-
-
+       # k = open('count.txt','a')
+       # k.write(str(len(models)*84) + ' ' + line)
+       # k.close()
+        models = np.random.choice(models, 10)
         for model_file in models:
-            #    call_blender(model_file)
-            call_blender(model_file, catogory)
+            print 'here'
+            call_blender(model_file)
+	    print model_file
+            #call_blender(model_file, category)
+
